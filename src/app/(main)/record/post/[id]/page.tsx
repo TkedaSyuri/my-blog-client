@@ -1,4 +1,3 @@
-import { Posts } from "@/app/Type";
 import React from "react";
 
 export const getDetailPost = async (id: string) => {
