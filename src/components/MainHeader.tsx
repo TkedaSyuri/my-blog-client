@@ -1,24 +1,37 @@
-import Link from 'next/link'
+import Link from "next/link";
 
-
- 
 export const MainHeader = () => {
   return (
-    <header className="bg-gradient-to-r   from-red-700  to-gray-800 ">
-    <Link href="/" className="font-bold text-4xl">
-      Syuri Takeda
-    </Link>
-    <div className="flex justify-end gap-4">
-      <div className="flex justify-start">
-        <div className="text-white">
-          <Link href="/" className="font-semibold">
-            TOPへ←
+    <header className="bg-gradient-to-r   from-red-700  to-gray-800">
+      <div>
+        <Link href="/" className="text-white font-semibold text-4xl">
+           PortFolio Blog
+        </Link>
+      </div>
+      <div className="px-1 text-white flex justify-end gap-5">
+        <div>
+          <Link href="/portfolio" className="font-semibold">
+            ホーム
+          </Link>
+        </div>
+        <div className="hover:text-purple-500 duration-300">
+          <Link href="/profile" className="font-semibold">
+            プロフィール
+          </Link>
+        </div>
+        <div>
+          <Link href="/blog" className="font-semibold">
+            ブログ
+          </Link>
+        </div>
+        <div>
+          <Link href="/portfolio" className="font-semibold">
+            ポートフォリオ
           </Link>
         </div>
       </div>
-    </div>
-  </header>
-)
-}
+    </header>
+  );
+};
 
-export default MainHeader
+export default MainHeader;
