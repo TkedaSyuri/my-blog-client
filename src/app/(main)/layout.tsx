@@ -6,12 +6,10 @@ export const PortfolioLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <html lang="ja">
-      <body>
-        <MainHeader/>
-        {children}
-      </body>
-    </html>
+    <div>
+      <MainHeader />
+      {children}
+    </div>
   );
 };
 
