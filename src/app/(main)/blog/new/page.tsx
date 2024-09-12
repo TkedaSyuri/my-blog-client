@@ -1,14 +1,34 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
+
+
+const createPost = async (title: string, content: string) => {
+    try {
+       await fetch(`http://localhost:5000/posts`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title: title, content: content }),
+      });
+    } catch (err) {
+      console.log(err);
+      alert("投稿に失敗しました");
+    }
+  };
+
+
 
 const NewPostPage = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const router = useRouter();
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    console.log(title, content);
+    
+    await createPost(title,content)
+    router.push("/blog")
   };
 
   return (
