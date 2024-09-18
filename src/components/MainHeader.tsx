@@ -14,7 +14,7 @@ export const MainHeader = () => {
             ホーム
           </Link>
         </div>
-        <div className="hover:text-purple-500 duration-300">
+        <div>
           <Link href="/profile" className="font-semibold">
             プロフィール
           </Link>
