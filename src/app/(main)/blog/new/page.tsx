@@ -1,23 +1,9 @@
 "use client";
 
+import { createPost } from "@/app/api/post";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
-
-
-const createPost = async (title: string, content: string) => {
-    try {
-       await fetch(`http://localhost:5000/posts`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title: title, content: content }),
-      });
-    } catch (err) {
-      console.log(err);
-      alert("投稿に失敗しました");
-    }
-  };
-
-
 
 const NewPostPage = () => {
   const [title, setTitle] = useState("");
@@ -26,13 +12,19 @@ const NewPostPage = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    
-    await createPost(title,content)
-    router.push("/blog")
+
+    await createPost(title, content);
+    router.push("/blog");
+    router.refresh()
   };
 
   return (
-    <div className="flex flex-col justify-center py-20">
+    <div className="flex flex-col justify-center ">
+      <div className="font-bold flex justify-start">
+        <Link href={"/blog"}>
+          <span>戻る</span>
+        </Link>
+      </div>
       <div className="mt-10 mx-auto w-full max-w-sm">
         <h1 className="pt-2 text-2xl font-bold flex justify-center">
           ブログ新規投稿
@@ -42,7 +34,7 @@ const NewPostPage = () => {
             <label className="block font-semibold">タイトル</label>
             <input
               type="text"
-              className="block mt-1 py-1.5 px-2 w-full rounded-md border-2 border-gray shadow-sm "
+              className="block mt-1 py-1.5 px-2 w-full rounded-md border-2 border-gray shadow-sm outline-none"
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 setTitle(e.target.value)
               }
@@ -51,18 +43,20 @@ const NewPostPage = () => {
           <div>
             <label className="block font-semibold ">本文</label>
             <textarea
-              className="block mt-1 py-1.5 px-2 w-full rounded-md border-2 border-gray shadow-sm"
+              className="block mt-1 py-1.5 px-2 w-full rounded-md border-2 border-gray shadow-sm outline-none"
               onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
                 setContent(e.target.value)
               }
             />
           </div>
+          <div className=" flex justify-end">
           <button
             type="submit"
-            className="bg-gray-500 border-2 border-black rounded-sm"
+            className="mt-4 px-1 bg-gray-300 border-2 border-black rounded-sm "
           >
-            投稿
+            <span>投稿する</span>
           </button>
+          </div>
         </form>
       </div>
     </div>
