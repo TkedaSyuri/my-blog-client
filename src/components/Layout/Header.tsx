@@ -2,13 +2,13 @@ import Link from "next/link";
 
 export const MainHeader = () => {
   return (
-    <header className="bg-gradient-to-r   from-red-700  to-gray-800">
-      <div>
-        <Link href="/" className="text-white font-semibold text-4xl">
-           PortFolio Blog
+    <header className="py-4 bg-gradient-to-r from-red-700  to-gray-800">
+      <div className="text-center">
+        <Link href="/" className=" text-white font-semibold text-4xl">
+           Takeda Syuri - Blog
         </Link>
       </div>
-      <div className="px-1 text-white flex justify-end gap-5">
+      <div className="px-1 pt-4 text-2x text-white flex justify-around ">
         <div>
           <Link href="/portfolio" className="font-semibold">
             ホーム

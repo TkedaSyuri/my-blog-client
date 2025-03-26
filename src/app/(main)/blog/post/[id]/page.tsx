@@ -1,11 +1,15 @@
 import DetailPost from "@/components/Blog/DetailPost/DetailPost";
 
 export const getDetailPost = async (id: string) => {
-  const res = await fetch(`http://localhost:5000/posts/${id}`, {
-    cache: "no-store",
-  });
-  const data = await res.json();
-  return data;
+  try{
+    const res = await fetch(`http://localhost:8080/posts/${id}`, {
+      cache: "no-store",
+    });
+    const data = await res.json();
+    return data;
+  }catch (err){
+    console.log(err)
+  }
 };
 
 const detailPostPage = async ({ params }: { params: { id: string } }) => {

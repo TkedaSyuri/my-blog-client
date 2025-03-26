@@ -13,9 +13,11 @@ const NewPostPage = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    await createPost(title, content);
+   await createPost(title, content);
     router.push("/blog");
     router.refresh()
+
+  
   };
 
   return (

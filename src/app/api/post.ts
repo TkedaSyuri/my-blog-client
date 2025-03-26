@@ -1,7 +1,7 @@
 import { Posts } from "../Type";
 
 export const getPosts = async (): Promise<Posts[]> => {
-  const res = await fetch("http://localhost:5000/posts", {
+  const res = await fetch("http://localhost:8080/posts", {
     cache: "no-store",
   });
   const data = res.json();
@@ -10,7 +10,7 @@ export const getPosts = async (): Promise<Posts[]> => {
 
 export const createPost = async (title: string, content: string) => {
   try {
-    await fetch(`http://localhost:5000/posts`, {
+    await fetch(`http://localhost:8080/posts`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title: title, content: content }),
@@ -23,7 +23,7 @@ export const createPost = async (title: string, content: string) => {
 
 export const editPost = async (title: string, content: string,id:string) => {
   try {
-    await fetch(`http://localhost:5000/posts/${id}`, {
+    await fetch(`http://localhost:8080/posts/${id}`, {
       cache: "no-store",
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -38,7 +38,7 @@ export const editPost = async (title: string, content: string,id:string) => {
 
 export const deletePost = async (id: string) => {
   try {
-    await fetch(`http://localhost:5000/posts/${id}`, {
+    await fetch(`http://localhost:8080/posts/${id}`, {
       cache: "no-store",
       method: "DELETE",
       headers: { "Content-Type": "application/json" },

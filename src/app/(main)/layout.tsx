@@ -1,4 +1,11 @@
-import MainHeader from "@/components/MainHeader";
+import Header from "@/components/Layout/Header"
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Takeda Syuri - Blog",
+  description: "This is Takeda Syuri Blog",
+};
+
 
 export const PortfolioLayout = ({
   children,
@@ -6,8 +13,8 @@ export const PortfolioLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <div>
-      <MainHeader />
+    <div className="bg-gray-100">
+      <Header />
       {children}
     </div>
   );
