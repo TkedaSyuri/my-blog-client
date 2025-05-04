@@ -1,6 +1,6 @@
 "use client";
 
-import { Posts } from "@/app/Type";
+import { Posts } from "@/types/types";
 import Link from "next/link";
 import React from "react";
 

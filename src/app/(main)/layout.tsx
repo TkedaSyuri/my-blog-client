@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 
-export const PortfolioLayout = ({
+ const PortfolioLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;

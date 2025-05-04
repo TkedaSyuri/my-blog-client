@@ -1,7 +1,7 @@
 "use client";
 
 import { deletePost } from "@/app/api/post";
-import { Posts } from "@/app/Type";
+import { Posts } from "@/types/types";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 

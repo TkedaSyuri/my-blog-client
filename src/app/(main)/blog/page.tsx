@@ -1,8 +1,17 @@
+import { Posts } from "@/types/types";
 import BlogCard from "@/components/Blog/BlogCard/BlogCard";
-import { getPosts } from "@/app/api/post";
 import Link from "next/link";
 
 const BlogPage = async () => {
+  const getPosts = async (): Promise<Posts[]> => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/posts`, {
+      cache: "no-store",
+    });
+    const data = await res.json();
+
+    return data;
+  };
+  
   const posts = await getPosts();
   return (
     <main className="mx-2 mt-4">
