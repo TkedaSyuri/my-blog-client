@@ -20,7 +20,7 @@ const BlogCard: React.FC<PostsProps> = ({ posts }) => {
               <div className=" hover:text-blue-600 cursor-default">
                 <div className="text-3xl text-white">{post.title}</div>
               </div>
-              <div className="font-semibold ">作成日 : {post.created_at}</div>
+              <div className="font-semibold ">作成日 : {new Date(post.created_at).toLocaleDateString()}</div>
               <div className="">
                 <Link href={`blog/post/${post.id}`}>
                   <button className="p-2 border-green-600 bg-black text-white border rounded-md">

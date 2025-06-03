@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   children: React.ReactNode;
 }>) => {
   return (
-    <div className="bg-gray-100">
+    <div>
       <Header />
       {children}
     </div>
