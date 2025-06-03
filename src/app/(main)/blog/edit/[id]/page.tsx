@@ -1,6 +1,5 @@
 "use client";
 
-import { editPost } from "@/app/api/post";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
@@ -13,6 +12,22 @@ const EditPostPage = ({ params }: { params: { id: string } }) => {
   const [content, setContent] = useState("");
   const router = useRouter();
   const id = params.id
+
+ const editPost = async (title: string, content: string,id:string) => {
+  try {
+    await fetch(`${process.env.NEXT_PUBLIC_API}/posts/${id}`, {
+      cache: "no-store",
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title: title, content: content }),
+    });
+  } catch (err) {
+    console.log(err);
+    alert("編集に失敗しました");
+  }
+};
+
+
 
 
   const handleSubmit = async (e: FormEvent) => {
