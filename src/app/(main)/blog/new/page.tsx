@@ -11,7 +11,7 @@ const NewPostPage = () => {
 
    const createPost = async (title: string, content: string) => {
     try {
-      await fetch(`${process.env.NEXT_PUBLIC_API}/posts`, {
+      await fetch(`${process.env.SERVER_API}/posts`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ title: title, content: content }),

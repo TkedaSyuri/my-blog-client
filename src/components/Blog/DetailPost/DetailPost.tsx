@@ -6,7 +6,7 @@ import { Posts } from "@/types/types";
 
 export const deletePost = async (id: string) => {
   try {
-    await fetch(`${process.env.NEXT_PUBLIC_API}/posts/${id}`, {
+    await fetch(`${process.env.SERVER_API}/posts/${id}`, {
       cache: "no-store",
       method: "DELETE",
       headers: { "Content-Type": "application/json" },

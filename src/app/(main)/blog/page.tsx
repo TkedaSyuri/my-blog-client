@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const BlogPage = async () => {
   const getPosts = async (): Promise<Posts[]> => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/posts`, {
+    const res = await fetch(`${process.env.SERVER_API}/posts`, {
       cache: "no-store",
     });
     const data = await res.json();

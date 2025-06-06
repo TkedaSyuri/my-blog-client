@@ -15,7 +15,7 @@ const EditPostPage = ({ params }: { params: { id: string } }) => {
 
  const editPost = async (title: string, content: string,id:string) => {
   try {
-    await fetch(`${process.env.NEXT_PUBLIC_API}/posts/${id}`, {
+    await fetch(`${process.env.SERVER_API}/posts/${id}`, {
       cache: "no-store",
       method: "PUT",
       headers: { "Content-Type": "application/json" },
