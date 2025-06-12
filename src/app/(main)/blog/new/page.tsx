@@ -1,5 +1,6 @@
 "use client";
 
+import { createPost } from "@/app/lib/api/post";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
@@ -9,18 +10,6 @@ const NewPostPage = () => {
   const [content, setContent] = useState("");
   const router = useRouter();
 
-   const createPost = async (title: string, content: string) => {
-    try {
-      await fetch(`${process.env.SERVER_API}/posts`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title: title, content: content }),
-      });
-    } catch (err) {
-      console.log(err);
-      alert("投稿に失敗しました");
-    }
-  };
   
 
   const handleSubmit = async (e: FormEvent) => {

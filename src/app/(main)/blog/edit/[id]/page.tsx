@@ -1,41 +1,22 @@
 "use client";
 
+import { editPost } from "@/app/lib/api/edit";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
-
-
-
 
 const EditPostPage = ({ params }: { params: { id: string } }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const router = useRouter();
-  const id = params.id
-
- const editPost = async (title: string, content: string,id:string) => {
-  try {
-    await fetch(`${process.env.SERVER_API}/posts/${id}`, {
-      cache: "no-store",
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title: title, content: content }),
-    });
-  } catch (err) {
-    console.log(err);
-    alert("編集に失敗しました");
-  }
-};
-
-
-
+  const id = params.id;
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    await editPost(title, content,id);
+    await editPost(title, content, id);
     router.push("/blog");
-    router.refresh()
+    router.refresh();
   };
 
   return (
@@ -71,13 +52,12 @@ const EditPostPage = ({ params }: { params: { id: string } }) => {
             />
           </div>
           <div className="flex justify-end">
-          <button
-            type="submit"
-            className="mt-4 px-1 bg-gray-300 border-2 border-black rounded-sm "
-          >
-            <span>編集する</span>
-          </button>
-
+            <button
+              type="submit"
+              className="mt-4 px-1 bg-gray-300 border-2 border-black rounded-sm "
+            >
+              <span>編集する</span>
+            </button>
           </div>
         </form>
       </div>
