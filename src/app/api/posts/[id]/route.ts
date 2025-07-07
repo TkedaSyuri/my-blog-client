@@ -1,4 +1,23 @@
-// src/app/api/posts/[id]/route.ts
+
+export async function GET(req: Request, { params }: { params: { id: string } }) {
+
+  try{
+  const res = await fetch(`${process.env.API_URL}/posts/${params.id}`, {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  });
+
+  const data = await res.json();
+  return new Response(JSON.stringify(data), {
+    status: res.status,
+    headers: { "Content-Type": "application/json" },
+  });
+  
+  }catch(err){
+    console.log(err)
+  }
+}
+
 
 export async function PUT(req: Request, { params }: { params: { id: string } }) {
   const body = await req.json();
