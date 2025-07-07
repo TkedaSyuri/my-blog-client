@@ -1,3 +1,6 @@
+
+//ブログを投稿するapi
+
 export const createPost = async (title: string, content: string) => {
   try {
     await fetch("/api/posts", {

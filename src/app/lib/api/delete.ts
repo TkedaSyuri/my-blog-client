@@ -1,3 +1,6 @@
+
+//ブログを削除するapi
+
 export const deletePost = async (id: string) => {
   try {
     await fetch(`/api/posts/${id}`, {
