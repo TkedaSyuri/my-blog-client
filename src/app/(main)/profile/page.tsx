@@ -134,17 +134,6 @@ const ProfilePage = () => {
               example@example.com
             </a>
           </p>
-          <p className="text-gray-600">
-            LinkedIn:{" "}
-            <Link
-              href="https://www.linkedin.com"
-              className="text-blue-500"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              linkedin.com/in/yourprofile
-            </Link>
-          </p>
         </div>
       </div>
     </div>

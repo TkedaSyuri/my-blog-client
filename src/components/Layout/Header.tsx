@@ -10,7 +10,7 @@ export const MainHeader = () => {
       </div>
       <div className="px-1 pt-4 text-2x text-white flex justify-around ">
         <div>
-          <Link href="/portfolio" className="font-semibold">
+          <Link href="/" className="font-semibold">
             ホーム
           </Link>
         </div>
@@ -22,11 +22,6 @@ export const MainHeader = () => {
         <div>
           <Link href="/blog" className="font-semibold">
             ブログ
-          </Link>
-        </div>
-        <div>
-          <Link href="/portfolio" className="font-semibold">
-            ポートフォリオ
           </Link>
         </div>
       </div>
