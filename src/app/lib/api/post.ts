@@ -10,6 +10,6 @@ export const createPost = async (title: string, content: string) => {
     });
   } catch (err) {
     console.log(err);
-    alert("投稿に失敗しました");
+   return console.log(err);
   }
 };

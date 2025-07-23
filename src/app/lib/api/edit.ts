@@ -10,8 +10,7 @@
       body: JSON.stringify({ title: title, content: content }),
     });
   } catch (err) {
-    console.log(err);
-    alert("編集に失敗しました");
+   return console.log(err);
   }
 };
 

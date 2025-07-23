@@ -9,8 +9,7 @@ export const deletePost = async (id: string) => {
       headers: { "Content-Type": "application/json" },
     });
   } catch (err) {
-    console.log(err);
-    alert("削除に失敗しました");
+   return console.log(err);
   }
 };
 
