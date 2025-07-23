@@ -4,8 +4,8 @@ import BlogCard from "@/components/Blog/BlogCard/BlogCard";
 import Link from "next/link";
 
 const BlogPage = async () => {
-  
 const getPosts = async (): Promise<Posts[]> => {
+
   try {
     const res = await fetch(`${process.env.API_URL}/posts`, {
       cache: "no-store",
